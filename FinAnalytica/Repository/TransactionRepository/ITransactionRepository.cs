@@ -1,6 +1,6 @@
 ﻿using FinAnalytica.API.Models;
 
-namespace FinAnalytica.API.Repository
+namespace FinAnalytica.API.Repository.TransactionRepository
 {
     public interface ITransactionRepository
     {

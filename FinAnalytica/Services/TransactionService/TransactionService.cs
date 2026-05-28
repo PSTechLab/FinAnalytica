@@ -1,8 +1,8 @@
 ﻿using ErrorOr;
 using FinAnalytica.API.Models;
-using FinAnalytica.API.Repository;
+using FinAnalytica.API.Repository.TransactionRepository;
 
-namespace FinAnalytica.API.Services
+namespace FinAnalytica.API.Services.TransactionService
 {
     public class TransactionService : ITransactionService
     {
@@ -15,7 +15,7 @@ namespace FinAnalytica.API.Services
 
         public async Task<ErrorOr<Transaction>> CreateTransactionAsync(Transaction transaction)
         {
-            if(transaction.Amount <= 0)
+            if (transaction.Amount <= 0)
             {
                 return Error.Validation(code: "Transaction.InvalidAmount", description: "Transaction amount must be greater than zero.");
             }

@@ -2,7 +2,7 @@
 using FinAnalytica.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinAnalytica.API.Repository
+namespace FinAnalytica.API.Repository.TransactionRepository
 {
     public class TransactionRepository : ITransactionRepository
     {

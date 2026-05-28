@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FinAnalytica.API.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinAnalytica.API.Models
 {
@@ -7,18 +8,18 @@ namespace FinAnalytica.API.Models
         public int Id { get; set; }
 
         [Required]
-        public string ClientName { get; set; } = string.Empty;
+        public string ClientName { get; set; }
 
         [Required]
-        public string Category { get; set; } = string.Empty;
+        public Category Category { get; set; }
 
         // We ensure the amount is recorded accurately with decimal
         public decimal Amount { get; set; }
 
         public DateTime Date { get; set; } = DateTime.UtcNow;
 
-        public string Status { get; set; } = "Pending";
+        public Status Status { get; set; }
 
-        public string RiskLevel { get; set; } = "Low";
+        public RiskLevel RiskLevel { get; set; }
     }
 }

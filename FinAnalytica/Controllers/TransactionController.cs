@@ -1,9 +1,11 @@
 ﻿using FinAnalytica.API.Models;
-using FinAnalytica.API.Services;
+using FinAnalytica.API.Services.TransactionService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinAnalytica.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TransactionController : ControllerBase
@@ -22,7 +24,7 @@ namespace FinAnalytica.API.Controllers
 
             return result.Match(
                 success => CreatedAtAction(nameof(GetAllTransactions), new { id = success.Id }, success),
-                errors => Problem(detail: errors.First().Description, statusCode: 400)
+                errors => Problem(detail: errors.First().Description)
             );
         }
 

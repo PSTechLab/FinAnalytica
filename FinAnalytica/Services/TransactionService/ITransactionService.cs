@@ -1,7 +1,7 @@
 ﻿using FinAnalytica.API.Models;
 using ErrorOr;
 
-namespace FinAnalytica.API.Services
+namespace FinAnalytica.API.Services.TransactionService
 {
     public interface ITransactionService
     {

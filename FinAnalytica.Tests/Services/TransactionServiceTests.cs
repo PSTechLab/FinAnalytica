@@ -1,6 +1,6 @@
 ﻿using FinAnalytica.API.Models;
-using FinAnalytica.API.Repository;
-using FinAnalytica.API.Services;
+using FinAnalytica.API.Repository.TransactionRepository;
+using FinAnalytica.API.Services.TransactionService;
 using NSubstitute;
 using NSubstitute.ReceivedExtensions;
 
