@@ -1,0 +1,6 @@
+@FinAnalytica_HostAddress = http://localhost:5193
+
+GET {{FinAnalytica_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

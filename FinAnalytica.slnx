@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FinAnalytica.Tests/FinAnalytica.Tests.csproj" Id="50688bd0-f218-4928-bb72-0b043e9fd0e6" />
+  <Project Path="FinAnalytica/FinAnalytica.API.csproj" />
+</Solution>
