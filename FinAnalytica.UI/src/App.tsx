@@ -1,10 +1,15 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './features/auth/LoginPage'
+import Dashboard from './features/dashboard/Dashboard';
 
 function App() {
-  return (<div className="App">
-    <LoginPage />
-  </div>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

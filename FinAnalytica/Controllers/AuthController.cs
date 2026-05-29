@@ -1,4 +1,5 @@
-﻿using FinAnalytica.API.Services.AuthService;
+﻿using FinAnalytica.API.DTOs.Auth;
+using FinAnalytica.API.Services.AuthService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinAnalytica.API.Controllers
@@ -26,9 +27,9 @@ namespace FinAnalytica.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto user)
         {
-            var result = await _authService.LoginAsync(email, password);
+            var result = await _authService.LoginAsync(user.Email, user.Password);
 
             return result.Match(
                 success => Ok(new { Token = success }),
