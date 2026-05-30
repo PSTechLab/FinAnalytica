@@ -28,7 +28,7 @@ namespace FinAnalytica.API.Controllers
             );
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public async Task<IActionResult> GetAllTransactions()
         {
             var transactions = await _transactionService.GetAllTransactionsAsync();

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Container, Divider, Grid, Stack, TextField, Button, Typography, Paper } from '@mui/material';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import { Box, Grid, Stack, TextField, Button, Typography, Paper } from '@mui/material';
 import loginImage from '../../assets/Business Plan-bro.svg';
 import { loginUser } from './api/authService';
-import toast from 'react-hot-toast';
+import Logo from '../../components/Logo';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -17,11 +16,10 @@ const LoginPage = () => {
     setLoading(true);
     try {
       const data = await loginUser({ email, password });
-      toast.success('Login successful!');
       localStorage.setItem('token', data.token);
       navigate('/dashboard');
     } catch (err: any) {
-      toast.error('Invalid email or password');
+      console.error('Login failed:', err);
     } finally {
       setLoading(false);
     }
@@ -38,10 +36,7 @@ const LoginPage = () => {
           </Grid>
           <Grid size={5} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }}>
             <Stack spacing={2} sx={{ display: 'flex', alignItems: 'space-around', justifyContent: 'center' }}>
-              <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <AutoGraphIcon sx={{ fontSize: '90px', color: '#135E4B' }} />
-                <Typography variant="h2" sx={{ color: '#135E4B', fontWeight: 'bold' }}>FinAnalytica</Typography>
-              </Container>
+              <Logo iconSize="90px" textSize="h2" color="#135E4B" />
               <form onSubmit={handleLogin} style={{ padding: '20px' }}>
                 <Stack spacing={3} sx={{ padding: '20px' }}>
                   <Typography variant="h4" sx={{ color: '#135E4B', textAlign: 'center' }}>Welcome Back!</Typography>
@@ -72,7 +67,6 @@ const LoginPage = () => {
         </Grid>
       </Paper>
     </Box>
-
   );
 }
 
